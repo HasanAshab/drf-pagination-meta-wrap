@@ -1,9 +1,10 @@
 from .utils import to_openapi_schema
+from .settings import package_settings
 
 
 class WrapPaginationMetadataMixin:
-    paginated_response_data_key = "results"
-    paginated_response_meta_key = "meta"
+    paginated_response_meta_key = package_settings.PAGINATED_RESPONSE_META_KEY
+    paginated_response_data_key = package_settings.PAGINATED_RESPONSE_DATA_KEY
     additional_metadata = {}
 
     def get_additional_metadata(self):
